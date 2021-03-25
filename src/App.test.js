@@ -23,8 +23,19 @@ describe("Component principal", () => {
         transacao: 'saque',
         valor: 50
       }
-      const novoSaldo = calcularNovoSaldo(valores,150)
+      const novoSaldo = calcularNovoSaldo(valores,150);
+      
       expect(novoSaldo).toBe(100);
     });
+    it("que é um deposito, o valor vai aumentar", () => {
+      const valores = {
+        transacao: 'deposito',
+        valor: 50
+      }
+
+      const novoSaldo = calcularNovoSaldo(valores, 100)
+      
+      expect(novoSaldo).toBe(150)
+    })
   });
 });
